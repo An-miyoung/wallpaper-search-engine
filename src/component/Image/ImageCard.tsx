@@ -1,4 +1,6 @@
+import { MouseEventHandler } from 'react';
 import styled from 'styled-components';
+import { IWallPper } from '../../type';
 
 const Card = styled.div`
     margin-left: 8px;
@@ -15,11 +17,16 @@ const Img = styled.img`
     border-radius: 4px;
 `;
 
-const ImageCard = ({ imgData, onClick }) => {
-    const { webformatURL, id } = imgData;
+interface IImageCard {
+    imgData: IWallPper;
+    onClick: MouseEventHandler<HTMLDivElement>;
+}
+
+const ImageCard = ({ imgData, onClick }: IImageCard) => {
+    const { previewURL, id } = imgData;
     return (
         <Card onClick={onClick}>
-            <Img key={id} src={webformatURL}></Img>
+            <Img key={id} src={previewURL} width={150} height={100}></Img>
         </Card>
     );
 };

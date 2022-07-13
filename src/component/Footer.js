@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import styles from '../Footer.module.css';
 
 const FooterContainer = styled.div`
     text-align: center;
@@ -9,7 +10,7 @@ const FooterContainer = styled.div`
 
 const Footer = () => {
     return (
-        <FooterContainer>
+        <FooterContainer className={styles.container}>
             ©2022 Hanameee Corp. All rights reserved.
         </FooterContainer>
     );

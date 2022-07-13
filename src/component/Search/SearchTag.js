@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as DeleteIcon } from '../asset/delete.svg';
+import { ReactComponent as DeleteIcon } from '../../asset/delete.svg';
 
 const Tag = styled.div`
     display: flex;
@@ -23,11 +23,17 @@ const TagLabel = styled.span`
     }
 `;
 
-const SearchTag = () => {
+const SearchTag = ({ tag, searchTag, deleteTag }) => {
     return (
-        <Tag>
-            <TagLabel>최근 검색어</TagLabel>
-            <DeleteIcon width="12px" />
+        <Tag onClick={searchTag}>
+            <TagLabel>{tag}</TagLabel>
+            <DeleteIcon
+                width="12px"
+                onClick={(e) => {
+                    e.stopPropagation();
+                    deleteTag();
+                }}
+            />
         </Tag>
     );
 };
